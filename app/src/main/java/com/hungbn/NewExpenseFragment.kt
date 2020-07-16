@@ -37,7 +37,7 @@ class NewExpenseFragment : Fragment() {
 
         // Total View Model listen for new list of operands
         newExpenseViewModel.expenses.observe(this, Observer<List<ExpenseOperand>> {
-            totalViewModel.expenses.postValue(it)
+            totalViewModel.expenses.onNext(it)
         })
     }
 

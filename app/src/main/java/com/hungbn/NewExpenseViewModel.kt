@@ -13,7 +13,8 @@ import com.hungbn.expenses.ExpenseOperand
  */
 class NewExpenseViewModel : ViewModel() {
 
-    var expenses = MutableLiveData<List<ExpenseOperand>>(listOf())
+    var expenses = MutableLiveData<List<ExpenseOperand>>(listOf(ExpenseOperand(20),
+        ExpenseOperand(30)))
 
     // The initial operand
 
