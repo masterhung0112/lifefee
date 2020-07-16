@@ -18,6 +18,6 @@
         android:layout_height="wrap_content"
         android:textAlignment="viewEnd"
         android:textStyle="bold"
-        android:text="@{() => viewModel.totalExpense}"/>
+        android:text="@{viewmodel.totalExpense}"/>
 
 </LinearLayout>

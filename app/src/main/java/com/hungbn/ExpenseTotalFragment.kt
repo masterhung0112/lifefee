@@ -25,7 +25,7 @@ class ExpenseTotalFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(activity!!).get(ExpenseTotalViewModel::class.java)
-        // TODO: Use the ViewModel
+
     }
 
 }

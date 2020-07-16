@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.hungbn.ui.home.HomeFragment"
+        android:name="com.hungbn.NewExpenseFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
