@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import com.hungbn.databinding.FragmentExpenseTotalBinding
 
 class ExpenseTotalFragment : Fragment() {
 
@@ -19,12 +21,15 @@ class ExpenseTotalFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_expense_total, container, false)
+        var binding = DataBindingUtil.inflate<FragmentExpenseTotalBinding>(inflater, R.layout.fragment_expense_total, container, false)
+        viewModel = ViewModelProviders.of(activity!!).get(ExpenseTotalViewModel::class.java)
+        binding.viewmodel = viewModel
+        binding.lifecycleOwner = this
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(activity!!).get(ExpenseTotalViewModel::class.java)
 
     }
 

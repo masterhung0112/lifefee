@@ -29,7 +29,12 @@ open class ExpenseOperator {
 }
 
 class AddExpenseOperator: ExpenseOperator() {
-    override fun apply(expenseOperands: List<ExpenseOperand>): List<ExpenseOperand>
-            = listOf(expenseOperands.reduce { acc, expenseOperand -> ExpenseOperand(acc.value + expenseOperand.value)})
+    override fun apply(expenseOperands: List<ExpenseOperand>): List<ExpenseOperand> {
+        if (expenseOperands.size == 0) {
+            return listOf(ExpenseOperand(0))
+        }
+
+        return listOf(expenseOperands.reduce { acc, expenseOperand -> ExpenseOperand(acc.value + expenseOperand.value) })
+    }
 }
 

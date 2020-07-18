@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
+import com.hungbn.databinding.FragmentExpenseItemInputBinding
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -23,12 +26,17 @@ class ExpenseItemInputFragment : Fragment() {
         }
     }
 
+    lateinit var expenseItemInputViewModel: ExpenseItemInputViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_expense_item_input, container, false)
+        var binding = DataBindingUtil.inflate<FragmentExpenseItemInputBinding>(inflater, R.layout.fragment_expense_item_input, container, false)
+        expenseItemInputViewModel = ViewModelProviders.of(activity!!).get(ExpenseItemInputViewModel::class.java)
+        binding.viewmodel = expenseItemInputViewModel
+        binding.lifecycleOwner = this
+        return binding.root
     }
 
     companion object {
